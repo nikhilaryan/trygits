@@ -1,0 +1,18 @@
+1) create IAM Role using web identity(Google)
+2) Create inline-policy with code below
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "ec2:*",
+            "Resource": "*",
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "202.122.21.69"
+                }
+            }
+        }
+    ]
+}

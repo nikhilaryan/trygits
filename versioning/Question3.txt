@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1560142312386",
+    "Statement": [
+        {
+            "Sid": "Stmt1560142173338",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": [
+                    "arn:aws:iam::488599217855:root",
+                    "arn:aws:iam::488599217855:user/Wetrainee"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::aryabucketformeonly/Secret/*"
+        }
+    ]
+}
