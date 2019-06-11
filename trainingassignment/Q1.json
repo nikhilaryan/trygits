@@ -1,0 +1,44 @@
+{
+"Parameters":{
+        "Keyname":{
+            "Description":"nameid",
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "ConstraintDescription" : "must be the name of an existing EC2 KeyPair."
+            }
+      },
+"Mappings" : {
+          "Regions" : {
+                  "us-east-1":{"AMI":"ami-0c6b1d09930fac512"},
+                  "us-west-1": {"AMI": "ami-655a0a20"}
+    }
+  },
+"Resources":{
+            "Ninstanceec2":{
+                  "Type" : "AWS::EC2::Instance",
+                  "Properties" : {
+                        "InstanceType":"t2.micro",
+                        "UserData" : {
+                               "Fn::Base64" : { "Fn::Join" : ["", [
+                               "#!/bin/bash \n",
+                               "sudo yum install -y httpd\n",
+                               "sudo cd /var/www/html \n",
+                               "sudo touch index.html \n",
+                               "sudo chmod 777 index.html \n",
+                               "sudo echo 'helloworld' >> index.html"
+                              ]]}
+                        },
+                        "ImageId":
+                        {
+                              "Fn::FindInMap":[
+                                    "Regions",
+                                    {
+                                          "Ref":"AWS::Region"
+                                    },
+                                    "AMI"
+                              ]
+
+                        }
+                  }
+            }
+      }
+}

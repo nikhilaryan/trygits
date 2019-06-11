@@ -1,0 +1,23 @@
+Steps to make vpc and subnets
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.1.0/24
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.2.0/24
+aws ec2 create-internet-gateway
+aws ec2 attach-internet-gateway --vpc-id vpc-063bb115add2e3838 --internet-gateway-id igw-056ab23caa5f0f73b
+aws ec2 create-route-table --vpc-id vpc-063bb115add2e3838 
+aws ec2 create-route --route-table-id rtb-0152ccf8bda48ad08 --destination-cidr-block 0.0.0.0/0 --gateway-id igw-056ab23caa5f0f73b
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.3.0/24 --availability-zone-id aps1-az3
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.4.0/24 --availability-zone-id aps1-az3
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.6.0/24 --availability-zone-id aps1-az1
+aws ec2 create-subnet --vpc-id vpc-063bb115add2e3838 --cidr-block 10.0.7.0/24 --availability-zone-id aps1-az1
+aws ec2 describe-subnets
+aws ec2 associate-route-table  --subnet-id subnet-006f003ced092a10d --route-table-id rtb-0152ccf8bda48ad08
+aws ec2 associate-route-table  --subnet-id subnet-04191f8df889e37cf --route-table-id rtb-0152ccf8bda48ad08
+aws ec2 associate-route-table  --subnet-id subnet-03386fe08b2ca0878 --route-table-id rtb-0152ccf8bda48ad08
+
+
+
+
+
+
+
