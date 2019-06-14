@@ -1,0 +1,14 @@
+gsutil mb -b on gs://aryabucket
+gsutil ls
+gsutil versioning set on gs://aryabucket
+upload on instance then
+gsutil cp /home/nikhil_arya/cat.jfif  gs://aryabucket
+gsutil ls -a gs://aryabucket
+gs://aryabucket/cat.jfif#1560507081343952
+gs://aryabucket/cat.jfif#1560507413434705
+gsutil cp gs://arya-demo/index.txt gs://aryabucket
+gsutil mv gs://arya-demo/nsay.txt gs://aryabucket
+Copying gs://arya-demo/nsay.txt [Content-Type=text/plain]...
+Removing gs://arya-demo/nsay.txt...   
+gsutil cp -r gs://arya-demo/ nsay.txt
+
