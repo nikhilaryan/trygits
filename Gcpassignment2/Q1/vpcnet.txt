@@ -1,0 +1,7 @@
+resources:
+-type: compute.v1.network
+ properties:
+  autocreatesubnetworks:True
+  routingConfig:
+    routingMode: REGIONAL
+

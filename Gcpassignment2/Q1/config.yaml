@@ -1,0 +1,10 @@
+imports:
+- path: vpctemp.jinja
+
+resources:
+- name: Aryavpc
+  type: vpctemp.jinja
+- name: subnet1
+  type: subnet1.jinja
+- name: subnet2
+  type: subnet2.jinja
