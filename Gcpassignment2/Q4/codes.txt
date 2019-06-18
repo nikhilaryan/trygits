@@ -1,0 +1,14 @@
+gcloud compute instances create example-instance --tags instance-1 --metadata startup-s
+cript='#!/bin/bash 
+sudo su -
+apt-get update
+apt-get install -y apache2
+cat <<EOF > /var/www/html/index.html
+<html><body><h1>Arya</h1>
+</body></html>
+EOF'
+Did you mean zone [us-east1-b] for instance: [example-instance] (Y/n)?
+  Y
+Created [https://www.googleapis.com/compute/v1/projects/pe-training/zones/us-east1-b/instances/example-instance].
+NAME              ZONE        MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
+example-instance  us-east1-b  n1-standard-1              
