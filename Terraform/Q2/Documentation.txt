@@ -1,0 +1,35 @@
+1) Install jenkins on master
+2) http://YOUR-SERVER-PUBLIC-IP:8080
+3) Make pipeline project
+4) create ec2 instance
+5) make node(add slave)
+6) install jdk on slave
+7) Stepup Slave:-
+useradd jenkins-slave-01
+sudo su - jenkins-slave-01
+ssh-keygen -t rsa -N "" -f /home/jenkins-slave-01/.ssh/id_rsa
+cd .ssh
+cat id_rsa.pub > authorized_keys
+chmod 700 authorized_keys
+8) make node(add slave 2)
+9) install jdk on slave 2
+10) Steup slave2:- Repeat step 7
+11) On master:
+sudo -su
+mkdir -p /var/lib/jenkins/.ssh
+cd /var/lib/jenkins/.ssh
+ssh-keyscan -H slave1ip >>/var/lib/jenkins/.ssh/known_hosts
+chown jenkins:jenkins known_hosts
+chmod 700 known_hosts
+12) On master ssh-keyscan -H slave2ip >>/var/lib/jenkins/.ssh/known_hosts
+# slave2ip SSH-2.0-OpenSSH_7.4
+# slave2ip SSH-2.0-OpenSSH_7.4
+# Slave2ip SSH-2.0-OpenSSH_7.4
+13) Create credentials file on node(slave) and copy credential from id_rsa
+14) slave will be created
+15) in pipeline file add git and pipeline script
+16) pipeline script can be created through pipeline syntax 
+17) install all the needed dependenancies
+18) create a file named jenkinsfile in git and add pipeline script in it
+19) in manage jenkins click use iam role on s3
+20) 
