@@ -32,4 +32,6 @@ chmod 700 known_hosts
 17) install all the needed dependenancies
 18) create a file named jenkinsfile in git and add pipeline script in it
 19) in manage jenkins click use iam role on s3
-20) 
+20) create jenkins webhook on github project 
+21) on making changes in git file that we are using in pipeline script build will be triggered. 
+22) make sure file adds in s3 bucket.
